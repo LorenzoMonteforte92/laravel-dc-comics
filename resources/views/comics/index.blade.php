@@ -2,7 +2,7 @@
 
 @section('content')
     <section>
-        <div class="container">
+        <div class="container index-conteiner">
             <div class="row row-cols-4 row-gap-5 p-4">
                 @foreach ($comics as $comic)
                     <div class="col" style="hight: 60%;">

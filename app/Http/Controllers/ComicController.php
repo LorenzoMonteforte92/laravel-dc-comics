@@ -45,13 +45,14 @@ class ComicController extends Controller
         $formData = $request->all();
 
             $newComic = new Comic();
-            $newComic->title = $formData['title'];
-            $newComic->series = $formData['series'];
-            $newComic->description = $formData['description'];
-            $newComic->thumb = $formData['thumb'];
-            $newComic->type = $formData['type'];
-            $newComic->price = $formData['price'];
-            $newComic->sale_date = $formData['sale_date'];
+            // $newComic->title = $formData['title'];
+            // $newComic->series = $formData['series'];
+            // $newComic->description = $formData['description'];
+            // $newComic->thumb = $formData['thumb'];
+            // $newComic->type = $formData['type'];
+            // $newComic->price = $formData['price'];
+            // $newComic->sale_date = $formData['sale_date'];
+            $newComic->fill($formData);
             $newComic->save();
 
             return redirect()->route('comics.show', ['comic' => $newComic->id]);
@@ -102,9 +103,14 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //salvi in una variabile l'id del fumetto e accogli i dati dal form
+        $comics = Comic::findOrFail($id);
         $formData = $request->all();
-        
-        // return redirect()->route('comics.show', ['comic' => $newComic->id]);
+
+        //aggiorna il fumetto coi dai dal form
+        $comics->update($formData);
+
+        return redirect()->route('comics.show', ['comic' => $comics->id]);
     }
 
     /**
