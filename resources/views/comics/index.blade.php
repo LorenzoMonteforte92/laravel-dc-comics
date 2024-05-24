@@ -15,7 +15,12 @@
                                     <small>{{ $comic->type }}</small>
                                     <small>{{ $comic->price }}</small>
                                 </div>
-                                <a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="m-auto btn btn-primary">maggiori informazioni</a>
+                                <div class="pb-3">
+                                    <a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="m-auto btn btn-primary">Maggiori informazioni</a>
+                                </div>
+                                <div class="pb-3">
+                                    <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="m-auto btn btn-primary">Modifica prodotto</a>
+                                </div>
                             </div>
                         </div>
                     </div>
