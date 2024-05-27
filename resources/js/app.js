@@ -18,6 +18,12 @@ import.meta.glob([
             //seleziono con queryselector tramite nome di classe, il contenitore da popolare con testo 
         //aprire la modale
 
+        //inviare il form cliccando il bottone nella modale
+            //dare al bottone nella modale un id univoco
+            //seleziono il bottone con getElement e lo salvo in una variabile
+            //lo pongo in ascolto di un evento
+            //seleziono il parent del bottone che apre la modale, che è il form stesso, e lo invio
+
 
 const allDeleteButtons = document.querySelectorAll('.js-delete-item-btn');
 allDeleteButtons.forEach((singleDeleteButton) => {
@@ -39,7 +45,14 @@ allDeleteButtons.forEach((singleDeleteButton) => {
         const comicTitle = this.dataset.comicTitle
 
         //seleziono contenitore non dal documento tutto ma direttamente da dentro la modale e lo popolo con innerHTML
-        confirmationModal.querySelector('.modal-body').innerHTML = `Vuoi davvero cancellare definitivamente l'elemento ${comicTitle}?`
-        
+        confirmationModal.querySelector('.modal-body').innerHTML = `Vuoi davvero cancellare definitivamente l'elemento ${comicTitle}?`;
+
+        //salvo il bottone in una variabile
+        const modalDeleteConfirmationButton = document.getElementById('modal-confirm-delete');
+
+        modalDeleteConfirmationButton.addEventListener('click', function() {
+            //al click questo bottone deve svolgere le azioni di singleDeleteButton ovvero fare il submit di suo padre il form
+            singleDeleteButton.parentElement.submit();
+        });
     });  
 });

@@ -49,7 +49,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                  <button type="button" class="btn btn-danger">Cancella definitivamente</button>
+                  <button type="button" id="modal-confirm-delete" class="btn btn-danger">Cancella definitivamente</button>
                 </div>
               </div>
             </div>
