@@ -42,6 +42,25 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate(
+            [
+            'title'=>'required|min:6|max:50',
+            'series'=>'required|min:6|max:50',
+            'thumb'=>'required|min:6|max:250',
+            'type'=>'required|min:6|max:25',
+            'price'=>'required',
+            'sale_date'=>'required',
+            'description' => 'nullable|min:10|max:2000',
+
+            ],
+            //messaggi custom
+            [
+                'title.required' => '"Titolo" è un campo obbligatorio',
+                'title.max' => 'Il campo Titolo può avere massimo 50 caratteri',
+                'title.min' => 'Il campo Titolo deve avere minimo 6 caratteri',
+            ]
+    );
+
         $formData = $request->all();
 
             $newComic = new Comic();
@@ -103,6 +122,25 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate(
+            [
+            'title'=>'required|min:6|max:50',
+            'series'=>'required|min:6|max:50',
+            'thumb'=>'required|min:6|max:250',
+            'type'=>'required|min:6|max:25',
+            'price'=>'required',
+            'sale_date'=>'required',
+            'description' => 'nullable|min:10|max:2000',
+
+            ],
+            //messaggi custom
+            [
+                'title.required' => '"Titolo" è un campo obbligatorio',
+                'title.max' => 'Il campo Titolo può avere massimo 50 caratteri',
+                'title.min' => 'Il campo Titolo deve avere minimo 6 caratteri',
+            ]
+    );
+        
         //salvi in una variabile l'id del fumetto e accogli i dati dal form
         $comics = Comic::findOrFail($id);
         $formData = $request->all();
