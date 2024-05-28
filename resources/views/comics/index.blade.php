@@ -2,6 +2,13 @@
 
 @section('content')
     <section>
+        <div>
+            @if (session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+            @endif
+        </div>
         <div class="container index-conteiner">
             <div class="row row-cols-4 row-gap-5 p-4">
                 @foreach ($comics as $comic)

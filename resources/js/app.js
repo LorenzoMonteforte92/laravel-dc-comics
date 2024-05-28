@@ -33,7 +33,7 @@ allDeleteButtons.forEach((singleDeleteButton) => {
         //selezionare la modale con get element
         const confirmationModal = document.getElementById('deleteConfirmModal');
         
-        //renderla un'istanza di della classe Modal di Bootstrap
+        //renderla un'istanza della classe Modal di Bootstrap
         const bootstrapModal = new bootstrap.Modal(confirmationModal);
 
         //mostrarla con .show()
